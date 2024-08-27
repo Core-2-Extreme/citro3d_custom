@@ -45,7 +45,7 @@ ASFLAGS	:=	-g $(ARCH) $(DEFINES)
 # list of directories containing libraries, this must be the top level containing
 # include and lib
 #---------------------------------------------------------------------------------
-LIBDIRS	:= $(CTRULIB)
+LIBDIRS	:= $(DESTDIR)$(DEVKITPRO)/extra_lib
 
 #---------------------------------------------------------------------------------
 # no real need to edit anything past this point unless you need to add additional
@@ -100,8 +100,8 @@ dist-src:
 dist: dist-src dist-bin
 
 install: dist-bin
-	mkdir -p $(DESTDIR)$(DEVKITPRO)/libctru
-	bzip2 -cd citro3d-$(VERSION).tar.bz2 | tar -xf - -C $(DESTDIR)$(DEVKITPRO)/libctru
+	mkdir -p $(DESTDIR)$(DEVKITPRO)/extra_lib
+	bzip2 -cd citro3d-$(VERSION).tar.bz2 | tar -xf - -C $(DESTDIR)$(DEVKITPRO)/extra_lib
 
 lib:
 	@[ -d $@ ] || mkdir -p $@
