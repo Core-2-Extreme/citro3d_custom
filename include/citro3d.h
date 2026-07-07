@@ -8,6 +8,12 @@
 extern "C" {
 #endif
 
+#if __GNUC__
+//We don't want to see warnings in 3rd party headers.
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wpedantic"
+#endif //__GNUC__
+
 #include "c3d/types.h"
 
 #include "c3d/maths.h"
@@ -28,6 +34,10 @@ extern "C" {
 
 #include "c3d/framebuffer.h"
 #include "c3d/renderqueue.h"
+
+#if __GNUC__
+#pragma GCC diagnostic pop
+#endif //__GNUC__
 
 #ifdef __cplusplus
 }
